@@ -1,0 +1,19 @@
+{
+  "name": "banknote",
+  "version": "1.0.0",
+  "description": "Project Name\r Heading",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timkeefe/mvp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timkeefe/mvp/issues"
+  },
+  "homepage": "https://github.com/timkeefe/mvp"
+}
