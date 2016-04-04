@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="collectionMaker">
 <head>
+  <script src = "angular.js"></script>
+  <script src="app.js"></script>
   <title>Paper Money Collection App</title>
 </head>
-<body>
-  <h1>Hello People</h1>
+<body class="list-group" ng-controller="CatalogueController as catalogue">
+  <table>
+    <tr class="table-header">
+      <td>Country</td>
+      <td>Authority</td>
+      <td>BNBid</td>
+      <td>PICKid</td>
+      <td>Denomination</td>
+      <td>Currency</td>
+      <td>Date</td>
+      <td>Year</td>
+      <td>Type</td>
+    </tr>
+    <tr class="table-row" ng-repeat="item in catalogue.items">
+      <td>{{ item.country }}</td>
+      <td>{{ item.authority }}</td>
+      <td>{{ item.BNBid }}</td>
+      <td>{{ item.PICKid }}</td>
+      <td>{{ item.denomination }}</td>
+      <td>{{ item.currency }}</td>
+      <td>{{ item.date }}</td>
+      <td>{{ item.year }}</td>
+      <td>{{ item.type }}</td>
+    </tr>
+  </table>
+  <div></div>
 
 </body>
 </html>
