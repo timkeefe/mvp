@@ -186,7 +186,7 @@ app.controller('MainCtrl', [
         upvotes: 0,
         comments: [
           {author: 'Joe', body: 'Cool post!', upvotes: 0},
-          {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
+          {author: 'Bob', body: 'You Knucklehead!', upvotes: 0}
         ]
       });
       $scope.title = '';
@@ -204,5 +204,15 @@ app.controller('PostsCtrl', [
   'posts',
   function($scope, $stateParams, posts){
     $scope.post = posts.posts[$stateParams.id];
+
+    $scope.addComment = function(){
+      if(!$scope.body || $scope.body === '') {
+        return;
+      }
+      $scope.post.comments.push({
+        body: $scope.body,
+      });
+      $scope.body = "";
+    }
   }]);
 
