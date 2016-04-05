@@ -6,19 +6,26 @@
   <title>Paper Money Collection App</title>
 </head>
 <body class="list-group" ng-controller="CatalogueController as catalogue">
-  <table>
+  <!-- CATALOGUE TABLE -->
+  <div>
+    <h2>Paper Money Catalogue</h2>
+    <h5>Show ONLY items in your collection<input type="checkbox" /></h5>
+    <h5>Country Filter :<input type="text" ng-model="countryFilter.country"></input></h5>
+    <h5>Denom Filter   :<input type="text" ng-model="denomFilter.denomination"></input></h5>
+  </div>
+    <table>
     <tr class="table-header">
-      <td>Country</td>
-      <td>Authority</td>
-      <td>BNBid</td>
-      <td>PICKid</td>
-      <td>Denomination</td>
-      <td>Currency</td>
-      <td>Date</td>
-      <td>Year</td>
-      <td>Type</td>
+      <th ng-click="sortBy='country';reverse=!reverse">Country</th>
+      <th ng-click="sortBy='authority';reverse=!reverse">Authority</th>
+      <th ng-click="sortBy='BNBid';reverse=!reverse">BNBid</th>
+      <th ng-click="sortBy='PICKid';reverse=!reverse">PICKid</th>
+      <th ng-click="sortBy='denomination';reverse=!reverse">Denomination</th>
+      <th ng-click="sortBy='currency';reverse=!reverse">Currency</th>
+      <th ng-click="sortBy='date';reverse=!reverse">Date</th>
+      <th ng-click="sortBy='year';reverse=!reverse">Year</th>
+      <th ng-click="sortBy='type';reverse=!reverse">Type</th>
     </tr>
-    <tr class="table-row" ng-repeat="item in catalogue.items">
+    <tr class="table-row" ng-repeat="item in catalogue.items | filter:countryFilter | filter:denomFilter | orderBy:sortBy:reverse">
       <td>{{ item.country }}</td>
       <td>{{ item.authority }}</td>
       <td>{{ item.BNBid }}</td>
@@ -30,6 +37,8 @@
       <td>{{ item.type }}</td>
     </tr>
   </table>
+
+  <!-- USER COLLECTION TABLE -->
   <div></div>
 
 </body>
